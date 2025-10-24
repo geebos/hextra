@@ -36,11 +36,12 @@
     toggler.addEventListener("click", function (e) {
       e.preventDefault();
 
-      toggleMenu(toggler);
+      // Toggle the dropdown menu
+      const isOpen = toggler.dataset.state === "open";
+      toggler.dataset.state = isOpen ? "closed" : "open";
+      toggler.nextElementSibling.classList.toggle('hx:hidden');
     });
   });
-
-  window.addEventListener("resize", () => themeToggleButtons.forEach(resizeMenu))
 
   // Dismiss the menu when clicking outside
   document.addEventListener('click', (e) => {
