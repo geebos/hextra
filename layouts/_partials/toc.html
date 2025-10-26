@@ -1,7 +1,6 @@
 {{/* Table of Contents */}}
 {{/* TODO: toc bottom part should be able to hide */}}
 {{- $toc := .Params.toc | default true -}}
-{{- $onThisPage := (T "onThisPage") | default "On this page"}}
 {{- $tags := (T "tags") | default "Tags"}}
 {{- $editThisPage := (T "editThisPage") | default "Edit this page"}}
 {{- $backToTop := (T "backToTop") | default "Scroll to top" -}}
@@ -10,7 +9,6 @@
   {{- if $toc }}
     <div class="hextra-scrollbar hx:sticky hx:top-16 hx:overflow-y-auto hx:pr-4 hx:pt-6 hx:text-sm [hyphens:auto] hx:max-h-[calc(100vh-var(--navbar-height)-env(safe-area-inset-bottom))] hx:ltr:-mr-4 hx:rtl:-ml-4">
       {{- with .Fragments.Headings -}}
-        <p class="hx:mb-4 hx:font-semibold hx:tracking-tight">{{ $onThisPage }}</p>
         {{- range . -}}
           <ul>
             {{- with .Headings -}}{{ template "toc-subheading" (dict "headings" . "level" 0) }}{{- end -}}
