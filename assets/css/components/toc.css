@@ -2,3 +2,43 @@
 .hextra-toc a.hextra-toc-active {
   @apply hx:text-gray-900! hx:dark:text-gray-50! hx:transition-all hx:duration-200;
 }
+
+/* Table of Contents Collapsible Styles */
+.hextra-toc-item {
+  position: relative;
+}
+
+.hextra-toc-toggle {
+  flex-shrink: 0;
+}
+
+.hextra-toc-toggle svg {
+  transform: rotate(0deg);
+  transition: transform 0.2s ease;
+}
+
+.hextra-toc-item.expanded .hextra-toc-toggle svg {
+  transform: rotate(90deg);
+}
+
+.hextra-toc-children {
+  max-height: 0;
+  opacity: 0;
+  transform: translateY(-4px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hextra-toc-item.expanded .hextra-toc-children {
+  max-height: 1000px;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 默认折叠所有子目录 */
+.hextra-toc-children {
+  margin-top: 0.25rem;
+}
+
+.hextra-toc-item[data-level="0"].current-section {
+  @apply hx:bg-primary-50/50 hx:dark:bg-primary-900/10 hx:rounded;
+}
