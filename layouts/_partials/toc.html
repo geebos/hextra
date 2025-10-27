@@ -1,7 +1,6 @@
 {{/* Table of Contents */}}
 {{/* TODO: toc bottom part should be able to hide */}}
 {{- $toc := .Params.toc | default true -}}
-{{- $tags := (T "tags") | default "Tags"}}
 {{- $editThisPage := (T "editThisPage") | default "Edit this page"}}
 {{- $backToTop := (T "backToTop") | default "Scroll to top" -}}
 
@@ -24,14 +23,6 @@
 
       {{/* TOC bottom part */}}
       <div class="{{ $borderClass }} hx:sticky hx:bottom-0 hx:flex hx:flex-col hx:items-start hx:gap-2 hx:pb-8 hx:border-gray-200 hx:dark:border-neutral-800 hx:contrast-more:border-t hx:contrast-more:border-neutral-400 hx:contrast-more:shadow-none hx:contrast-more:dark:border-neutral-400">
-        {{- if and site.Params.toc.displayTags .Params.tags -}}
-          <div class="hx:flex hx:items-start hx:gap-x-2 hx:font-medium hx:text-xs">
-            <div class="hx:text-gray-500 hx:dark:text-gray-400 hx:contrast-more:text-gray-800 hx:contrast-more:dark:text-gray-50">{{ $tags }}</div>
-            <div class="hx:flex hx:flex-wrap hx:gap-y-1">
-              {{ partial "tags.html" (dict "context" .) }}
-            </div>
-          </div>
-        {{- end -}}
         {{- if site.Params.editURL.enable -}}
           {{- $editURL := site.Params.editURL.base | default "" -}}
           {{- with .Params.editURL -}}
