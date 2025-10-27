@@ -52,6 +52,13 @@
             {{- end -}}
           {{- end -}}
         </div>
+        {{- with .Description -}}
+          <div class="hx:mb-4 hx:p-5 hextra-card hx:group hx:overflow-hidden hx:rounded-lg hx:border hx:border-purple-200 hx:dark:border-purple-200/30 hx:bg-purple-50 hx:dark:bg-purple-900/30">
+            <div class="hx:text-gray-700 hx:dark:text-purple-200 hx:leading-relaxed hx:text-base">
+              {{ . }}
+            </div>
+          </div>
+        {{- end -}}
         <div class="content">
           {{ .Content }}
         </div>
